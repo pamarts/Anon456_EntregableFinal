@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Analizador de texto</title>
+  <link rel="stylesheet" href="esilos.css">
+  <script src="contador.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Herramienta local · sin conexión</p>
+        <h1>Análisis de texto</h1>
+      </div>
+      <button id="theme-toggle" class="secondary-button" type="button" aria-pressed="false">
+        Activar modo oscuro
+      </button>
+    </header>
+
+    <section class="panel input-panel" aria-labelledby="input-title">
+      <h2 id="input-title">Texto para analizar</h2>
+      <p id="input-help">Pega el texto o carga un archivo .TXT codificado en UTF-8 con BOM.</p>
+      <label for="text-input">Texto</label>
+      <textarea id="text-input" rows="12" aria-describedby="input-help" placeholder="Pega aquí el texto…"></textarea>
+      <div class="input-actions">
+        <label class="file-picker" for="file-input">Cargar archivo .TXT</label>
+        <input id="file-input" type="file" accept=".txt,text/plain">
+        <span id="file-name" class="file-name">Ningún archivo seleccionado</span>
+      </div>
+      <div class="button-row">
+        <button id="analyze-button" class="primary-button" type="button">Analizar texto</button>
+        <button id="clear-button" class="secondary-button" type="button">Limpiar</button>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="results" class="results" aria-labelledby="results-title" hidden>
+      <h2 id="results-title">Resultados</h2>
+      <div class="summary-grid">
+        <article class="panel metric metric-words">
+          <div class="metric-summary">
+            <h3>Palabras</h3>
+            <p id="word-count" class="metric-value">0</p>
+          </div>
+        </article>
+        <article class="panel metric metric-vowels">
+          <div class="metric-summary">
+            <h3>Vocales</h3>
+            <p id="vowel-count" class="metric-value">0</p>
+          </div>
+          <div id="vowel-details" class="vowel-breakdown"></div>
+        </article>
+        <article class="panel metric metric-consonants">
+          <div class="metric-summary">
+            <h3>Consonantes</h3>
+            <p id="consonant-count" class="metric-value">0</p>
+          </div>
+          <div id="consonant-details" class="letter-grid consonant-grid"></div>
+        </article>
+      </div>
+
+      <section class="panel character-panel" aria-labelledby="characters-title">
+        <h3 id="characters-title">Apariciones por sección</h3>
+        <p class="table-help">Recuento de coincidencias literales de los personajes indicados.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de apariciones por sección">
+          <table>
+            <thead id="character-head"></thead>
+            <tbody id="character-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
