@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Analizador de texto</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="contador.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Herramienta local · sin conexión</p>
+        <h1>Análisis de texto</h1>
+      </div>
+      <button id="theme-toggle" class="secondary-button" type="button" aria-pressed="false">
+        Activar modo oscuro
+      </button>
+    </header>
+
+    <section class="panel input-panel" aria-labelledby="input-title">
+      <h2 id="input-title">Análisis automático</h2>
+      <p>Se está cargando lazarillo_limpio.txt desde la misma carpeta que esta página.</p>
+      <p id="status" class="status" role="status" aria-live="polite">Cargando archivo…</p>
+    </section>
+
+    <section id="results" class="results" aria-labelledby="results-title" hidden>
+      <h2 id="results-title">Resultados</h2>
+      <div class="panel table-scroll" tabindex="0" role="region" aria-label="Tabla de recuentos">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Elemento</th>
+              <th scope="col">Apariciones</th>
+            </tr>
+          </thead>
+          <tbody id="count-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
